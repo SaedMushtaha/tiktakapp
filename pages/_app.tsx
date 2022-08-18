@@ -3,6 +3,7 @@ import type { AppProps } from 'next/app'
 import {useState, useEffect} from 'react';
 import NavBar from '../components/NavBar';
 import SideBar from '../components/SideBar';
+import Footer from '../components/Footer';
 function MyApp({ Component, pageProps }: AppProps) {
   const [isSSR, setIsSSR] = useState(true);
   
@@ -22,6 +23,7 @@ function MyApp({ Component, pageProps }: AppProps) {
            <Component {...pageProps} />
         </div>
     </div>
+    <Footer/>
   </div>
  )
   
