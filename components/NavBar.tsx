@@ -11,23 +11,22 @@ import { createOrGetUser } from "../utils/index";
 import useAuthStore from "../store/authStore";
 
 function NavBar() {
-  const { userProfile, addUser } = useAuthStore();
+  const { userProfile, addUser, removeUser } = useAuthStore();
 
   return (
     <div className="w-full flex justify-between border-b-2 border-gray-200 py-2 px-4">
       <div>
-      <Link href="/">
-        <div className="w-[100px] md:w-[130px]">
-          <Image
-            className="cursor-pointer"
-            src={Logo}
-            alt="TikTik"
-            layout="responsive"
-          />
-          
-        </div>
-      </Link>
-</div>
+        <Link href="/">
+          <div className="w-[100px] md:w-[130px]">
+            <Image
+              className="cursor-pointer"
+              src={Logo}
+              alt="TikTik"
+              layout="responsive"
+            />
+          </div>
+        </Link>
+      </div>
       <div>Search</div>
 
       <div>
@@ -48,13 +47,19 @@ function NavBar() {
                     className="rounded-full"
                     src={userProfile.image}
                     alt="profile photo"
-                   
                   />
                 </>
               </Link>
             )}
-            <button type="button" className="px-2">
-              <AiOutlineLogout color="red" fontSize={21}/>
+            <button
+              type="button"
+              className="px-2"
+              onClick={() => {
+                googleLogout();
+                removeUser();
+              }}
+            >
+              <AiOutlineLogout color="red" fontSize={21} />
             </button>
           </div>
         ) : (
