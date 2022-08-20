@@ -82,6 +82,7 @@ const Upload = () => {
     setVideoAsset(undefined);
     setCaption('');
     setTopic('');
+    router.push('/');
   };
 
   return (
